@@ -77,20 +77,20 @@
 - Foreign key constraints on property_id and user_id.
 - status must be one of pending, confirmed, or canceled.
 
-## Payment Table
+### Payment Table
 
 - Foreign key constraint on booking_id, ensuring payment is linked to valid bookings.
 
-## Review Table
+### Review Table
 
 - Constraints on rating values (1-5).
 - Foreign key constraints on property_id and user_id.
 
-## Message Table
+### Message Table
 
 - Foreign key constraints on sender_id and recipient_id.
 
-## Indexing
+### Indexing
 
 - Primary Keys: Indexed automatically.
 - Additional Indexes:
