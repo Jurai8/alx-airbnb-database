@@ -1,4 +1,0 @@
-
-# PRODEV
-
-## alx-airbnb-database
