@@ -7,7 +7,8 @@ INNER JOIN Property ON Booking.property_id = Property.property_id
 /* left join */
 SELECT P.property_id, p.name, R.rating, R.comment 
 FROM Property AS P
-LEFT JOIN Review AS R ON P.property_id = R.property_id;
+LEFT JOIN Review AS R ON P.property_id = R.property_id
+ORDER BY P.proerty_name;
 
 /* full outer join */
 SELECT user_id, booking_id, total_price
