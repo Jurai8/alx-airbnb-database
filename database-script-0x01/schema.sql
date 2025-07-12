@@ -8,20 +8,20 @@ CREATE TABLE User (
     phone_number VARCHAR(20) NULL,
     role ENUM ('guest', 'host', 'admin') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 CREATE TABLE Property (
     property_id VARCHAR(36) PRIMARY KEY,  
     host_id VARCHAR(36) NOT NULL,
-    name VARCHAR NOT NULL,
+    name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    location VARCHAR NOT NULL,
+    location VARCHAR(255) NOT NULL,
     pricepernight DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (host_id) REFERENCES User(user_id)
-)
+);
 
 CREATE TABLE Booking (
     booking_id VARCHAR(36) PRIMARY KEY, 
@@ -35,8 +35,7 @@ CREATE TABLE Booking (
 
     FOREIGN KEY (property_id) REFERENCES Property(property_id),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
-
-)
+);
 
 CREATE TABLE Payment (
     payment_id VARCHAR(36) PRIMARY KEY,
@@ -46,7 +45,7 @@ CREATE TABLE Payment (
     payment_method ENUM ('credit_card', 'paypal', 'stripe') NOT NULL,
 
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
-)
+);
 
 CREATE TABLE Review (
     review_id VARCHAR(36) PRIMARY KEY, 
@@ -59,7 +58,7 @@ CREATE TABLE Review (
 
     FOREIGN KEY (property_id) REFERENCES Property(property_id),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
-)
+);
 
 CREATE TABLE Message (
     message_id VARCHAR(36) PRIMARY KEY,
@@ -70,4 +69,4 @@ CREATE TABLE Message (
 
     FOREIGN KEY (sender_id) REFERENCES User(user_id),
     FOREIGN KEY (recipient_id) REFERENCES User(user_id)
-)
+);
