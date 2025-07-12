@@ -22,5 +22,4 @@ SELECT
     RANK() OVER (ORDER BY total_bookings DESC) AS property_rank     
 FROM
     PropertyBookingCounts;
-AND 
 
